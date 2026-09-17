@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <title>DigitLens — Finger Counter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <div class="brand"><span class="brand-mark">◌</span> DIGITLENS</div>
+        <p>Live finger counter <span>0–10</span></p>
+      </header>
+
+      <section class="camera-card" aria-label="Camera preview">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+        <div class="empty-state" id="emptyState">
+          <div class="camera-icon">⌁</div>
+          <h1>Ready when you are</h1>
+          <p>Turn on your camera, then hold up one or both hands.</p>
+        </div>
+        <div class="camera-status" id="cameraStatus">Camera off</div>
+      </section>
+
+      <section class="dashboard">
+        <div class="result-card">
+          <p class="eyebrow">FINGERS DETECTED</p>
+          <div class="number" id="count">0</div>
+          <p class="count-label" id="countLabel">fingers</p>
+        </div>
+        <div class="info-card">
+          <div><span>Hands in frame</span><strong id="handCount">0 / 2</strong></div>
+          <div><span>Tracking</span><strong id="trackingState">Waiting</strong></div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <button id="startButton" class="primary">Start camera</button>
+        <button id="stopButton" class="secondary" disabled>Stop camera</button>
+        <label class="toggle"><input id="mirrorToggle" type="checkbox" checked /> Mirror preview</label>
+      </section>
+      <p class="hint" id="hint">Runs privately in your browser. No video is uploaded.</p>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
